@@ -22,8 +22,7 @@ while True:
         Plant.get_all()
     elif flag == 3:
         id = int(input("Type id to search: "))
-        plant = Plant.get_by_id(id)
-        Plant.print_object([plant])
+        Plant.get_by_id(id)
     elif flag == 4:
         name = input("Employee name: ")
         object_id = input("Employee work id: ")
@@ -45,8 +44,7 @@ while True:
         Salon.get_all()
     elif flag == 9:
         id = int(input("Type id to search: "))
-        salon = Salon.get_by_id(id)
-        Salon.print_object([salon])
+        Salon.get_by_id(id)
     elif flag == 0:
         print("Goodbye!")
         break

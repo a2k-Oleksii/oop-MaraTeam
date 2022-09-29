@@ -42,7 +42,6 @@ class Model(ABC):
         data = cls.get_data()               # list dictionary
         counter = 0
         if len(data) > 0:
-            fields = data[0].keys()         # list keys
             for el in data:                 # dictionary
                 if id == el["id"]:
                     return el
