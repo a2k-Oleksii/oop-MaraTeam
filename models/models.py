@@ -33,7 +33,7 @@ class Employee(Model):
         work_of_employee = employee.get_work()          # dictionary
         cls.print_object([employee_dict])
         print("Employee work: ")
-        cls.print_object(work_of_employee)
+        cls.print_object([work_of_employee])
 
 
 class Salon(Model):
