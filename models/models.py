@@ -9,6 +9,26 @@ class Plant(Model):
         self.name = name
         self.location = location
 
+    def get_employees_work(id):
+        data = Employee.get_data()
+        employees_work = []
+        if len(data) > 0:
+            for el in data:  # dictionary
+                if id == int(el["object_id"]) and el["type_of_work"] == "plant":
+                    employees_work.append(el)
+        return employees_work
+
+    @classmethod
+    def get_by_id(cls, id):
+        plant_dict = super().get_by_id(id)  # get parent method -> dictionary
+        cls.print_object([plant_dict])
+        print("Employees work: ")
+        employees_work = cls.get_employees_work(id)
+        if len(employees_work) == 0:
+            print("This plant hasn't employees works!")
+        else:
+            for el in employees_work:
+                cls.print_object([el])
 
 class Employee(Model):
     file = "employees.json"
@@ -33,7 +53,7 @@ class Employee(Model):
         work_of_employee = employee.get_work()          # dictionary
         cls.print_object([employee_dict])
         print("Employee work: ")
-        cls.print_object(work_of_employee)
+        cls.print_object([work_of_employee])
 
 
 class Salon(Model):
@@ -43,3 +63,24 @@ class Salon(Model):
         self.name = name
         self.address = address
         self.size = size
+
+    def get_employees_work(id):
+        data = Employee.get_data()
+        employees_work = []
+        if len(data) > 0:
+            for el in data:  # dictionary
+                if id == int(el["object_id"]) and el["type_of_work"] == "salon":
+                    employees_work.append(el)
+        return employees_work
+
+    @classmethod
+    def get_by_id(cls, id):
+        salon_dict = super().get_by_id(id)  # get parent method -> dictionary
+        cls.print_object([salon_dict])
+        print("Employees work: ")
+        employees_work = cls.get_employees_work(id)
+        if len(employees_work) == 0:
+            print("This plant hasn't employees works!")
+        else:
+            for el in employees_work:
+                cls.print_object([el])
